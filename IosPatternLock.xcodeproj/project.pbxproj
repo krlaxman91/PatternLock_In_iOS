@@ -36,6 +36,7 @@
 		4B498B731BC24D86000B49B3 /* PatternDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternDocument.m; sourceTree = "<group>"; };
 		4B498B751BC25012000B49B3 /* DataObjectContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataObjectContainer.h; sourceTree = "<group>"; };
 		4B498B761BC25012000B49B3 /* DataObjectContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataObjectContainer.m; sourceTree = "<group>"; };
+		4B498B7F1BC26B3C000B49B3 /* Pattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pattern.h; sourceTree = "<group>"; };
 		4BBACBF71BBA55B200B940D1 /* IosPatternLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosPatternLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BBACBFB1BBA55B200B940D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4BBACBFD1BBA55B200B940D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,6 +126,14 @@
 			name = PatternDocument;
 			sourceTree = "<group>";
 		};
+		4B498B7E1BC26B2F000B49B3 /* Constant Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4B498B7F1BC26B3C000B49B3 /* Pattern.h */,
+			);
+			path = "Constant Classes";
+			sourceTree = "<group>";
+		};
 		4BA84C9F1BBCFA120036BEBF /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +163,7 @@
 		4BBACBF91BBA55B200B940D1 /* IosPatternLock */ = {
 			isa = PBXGroup;
 			children = (
+				4B498B7E1BC26B2F000B49B3 /* Constant Classes */,
 				4B498B6D1BC24A43000B49B3 /* StoryBoard */,
 				4B4989E81BC248C8000B49B3 /* ViewController */,
 				4B4989E71BC248BD000B49B3 /* DocumentClasses */,

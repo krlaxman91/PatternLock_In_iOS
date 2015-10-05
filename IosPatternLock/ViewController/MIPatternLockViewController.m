@@ -36,6 +36,7 @@ static void (^completionBlock)();
 @property (nonatomic, strong) UILabel *detailedLabel;
 
 
+
 // get key from the pattern drawn
 - (NSString*)getKey;
 
@@ -132,12 +133,10 @@ static void (^completionBlock)();
         self.titleLabel.text = @"Enter your pattern";
 }
 
-
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
 }
-
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     _paths = [[NSMutableArray alloc] init];
@@ -154,12 +153,9 @@ static void (^completionBlock)();
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    
     CGPoint pt = [[touches anyObject] locationInView:self.view];
     UIView *touched = [self.view hitTest:pt withEvent:event];
-    
-    DrawPatternLockView *v = (DrawPatternLockView*)self.view;
+        DrawPatternLockView *v = (DrawPatternLockView*)self.view;
     [v drawLineFromLastDotTo:pt];
     
     if (touched!=self.view && touched.tag != 0) {
@@ -172,8 +168,7 @@ static void (^completionBlock)();
             if (found)
                 break;
         }
-        
-        if (found)
+                if (found)
             return;
         
         if( touched.tag == [((NSNumber *)[_paths lastObject]) intValue] + 6)
@@ -186,8 +181,7 @@ static void (^completionBlock)();
                 [v addDotView:view];
             }
         }
-        
-        if( touched.tag == [((NSNumber *)[_paths lastObject]) intValue] + 2)
+                if( touched.tag == [((NSNumber *)[_paths lastObject]) intValue] + 2)
         {
             if(([((NSNumber *)[_paths lastObject]) intValue] + 2) % 3 == 0)
             {
@@ -325,6 +319,15 @@ static void (^completionBlock)();
     [[NSUserDefaults standardUserDefaults] setObject:_patternString forKey:LOCK_STRING];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOCK_ENABLED];
 }
+
+
+- (IBAction)setPatternHidden:(id)sender {
+   
+    
+  
+}
+
+
 
 
 @end

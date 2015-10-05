@@ -15,6 +15,7 @@
     NSMutableArray *_dotViews;
 }
 
+@property (nonatomic, strong) UIButton *setHidePatternMatch;
 
 - (void)clearDotViews;
 - (void)addDotView:(UIView*)view;
