@@ -79,18 +79,15 @@ static void (^completionBlock)();
 }
 
 -(void)backButtonAction{
-     [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self makeNavigationBar];
-    
     float x ;
     float y;
-    
     if([UIScreen mainScreen].bounds.size.height == 568) {
         x = 50;
         y = 180;
@@ -104,7 +101,7 @@ static void (^completionBlock)();
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:dotImage
                                                    highlightedImage:_activeImage];
-                imageView.frame = CGRectMake(x, y, 30, 30);
+        imageView.frame = CGRectMake(x, y, 30, 30);
         imageView.userInteractionEnabled = YES;
         imageView.tag = (i+1);
         [self.view addSubview:imageView];
@@ -119,9 +116,7 @@ static void (^completionBlock)();
             }
         }
     }
-    
     self.view.backgroundColor = [UIColor blackColor];
-    
     CGRect rect = CGRectMake(0, 40, 320, 40);
     self.titleLabel = [[UILabel alloc] initWithFrame:rect];
     rect.origin.y += 40;
@@ -132,10 +127,7 @@ static void (^completionBlock)();
     self.detailedLabel.textColor = [UIColor whiteColor];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.detailedLabel.textAlignment = NSTextAlignmentCenter;
-    if(_type == showForChange)
-        self.titleLabel.text = @"Enter your old pattern";
-    else
-        self.titleLabel.text = @"Enter your pattern";
+    self.titleLabel.text = @"Enter your pattern";
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -160,7 +152,7 @@ static void (^completionBlock)();
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     CGPoint pt = [[touches anyObject] locationInView:self.view];
     UIView *touched = [self.view hitTest:pt withEvent:event];
-        DrawPatternLockView *v = (DrawPatternLockView*)self.view;
+    DrawPatternLockView *v = (DrawPatternLockView*)self.view;
     [v drawLineFromLastDotTo:pt];
     
     if (touched!=self.view && touched.tag != 0) {
@@ -173,59 +165,19 @@ static void (^completionBlock)();
             if (found)
                 break;
         }
-                if (found)
+        if (found)
             return;
-        
-        if( touched.tag == [((NSNumber *)[_paths lastObject]) intValue] + 6)
-        {
-            // To Avoid first touched 6
-            if ([((NSNumber *)[_paths lastObject]) intValue]) {
-                UIView *view = [self.view viewWithTag:[((NSNumber*) [_paths lastObject]) intValue] + 3];
-                ((UIImageView *) view).highlighted = YES;
-                [_paths addObject:[NSNumber numberWithInt:[((NSNumber *)[_paths lastObject]) intValue] + 3]];
-                [v addDotView:view];
-            }
-        }
-                if( touched.tag == [((NSNumber *)[_paths lastObject]) intValue] + 2)
-        {
-            if(([((NSNumber *)[_paths lastObject]) intValue] + 2) % 3 == 0)
-            {
-                UIView *view = [self.view viewWithTag:[((NSNumber*) [_paths lastObject]) intValue] + 1];
-                ((UIImageView *) view).highlighted = YES;
-                [_paths addObject:[NSNumber numberWithInt:[((NSNumber *)[_paths lastObject]) intValue] + 1]];
-                [v addDotView:view];
-            }
-        }
-        
-        if(touched.tag == [((NSNumber *)[_paths lastObject]) intValue] + 8)
-        {
-            // To Avoid first touched 8
-            if ([((NSNumber *)[_paths lastObject]) intValue]) {
-                UIView *view = [self.view viewWithTag:[((NSNumber*) [_paths lastObject]) intValue] + 4];
-                ((UIImageView *) view).highlighted = YES;
-                [_paths addObject:[NSNumber numberWithInt:[((NSNumber *)[_paths lastObject]) intValue] + 4]];
-                [v addDotView:view];
-            }
-        }
-        
         [_paths addObject:[NSNumber numberWithInt:touched.tag]];
-        
-        
         if(touched.tag != 0)
         {
             [v addDotView:touched];
             UIImageView* iv = (UIImageView*)touched;
             iv.highlighted = YES;
         }
-        
     }
-    
 }
 
-
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    // clear up hilite
     DrawPatternLockView *v = (DrawPatternLockView*)self.view;
     [v clearDotViews];
     
@@ -236,12 +188,8 @@ static void (^completionBlock)();
     
     if(self.toucheddots && [[self getKey] length] != 1)
     {
-        // pass the output to target action...
         if (_target && _action)
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [_target performSelector:_action withObject:[self getKey]];
-#pragma clang diagnostic pop
     }
 }
 
@@ -251,7 +199,6 @@ static void (^completionBlock)();
 - (NSString*)getKey {
     NSMutableString *key;
     key = [NSMutableString string];
-    
     // simple way to generate a key
     for (NSNumber *tag in _paths) {
         [key appendFormat:@"%d", tag.integerValue];
@@ -279,7 +226,6 @@ static void (^completionBlock)();
                 self.detailedLabel.text = @"Invalid pattern";
             }
             break;
-            
         case 1:
             if(_shouldConfirm) {
                 if([_patternString isEqualToString:_patternToConfirm]) {
@@ -298,17 +244,6 @@ static void (^completionBlock)();
                 _shouldConfirm = !_shouldConfirm;
             }
             break;
-            
-        case 2:
-            if([_patternString isEqualToString:[self getPatternLock]]) {
-                self.titleLabel.text = @"Enter your new pattern";
-                self.detailedLabel.text = @"";
-                _type = showForEnable;
-            } else {
-                _numberOfFails++;
-                self.detailedLabel.text = @"Invalid pattern";
-            }
-            break;
         default:
             break;
     }
@@ -324,15 +259,5 @@ static void (^completionBlock)();
     [[NSUserDefaults standardUserDefaults] setObject:_patternString forKey:LOCK_STRING];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOCK_ENABLED];
 }
-
-
-- (IBAction)setPatternHidden:(id)sender {
-   
-    
-  
-}
-
-
-
 
 @end

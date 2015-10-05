@@ -13,7 +13,6 @@
 typedef enum {
     showForAuthenticate = 0,
     showForEnable,
-    showForChange
   } ShowType;
 
 @interface MIPatternLockViewController : UIViewController {
