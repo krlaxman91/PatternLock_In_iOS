@@ -37,7 +37,7 @@
     [self addSubview:_setHidePatternMatch];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 4.0);
+    CGContextSetLineWidth(context, 2.0);
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGFloat components[] = {0.8, 0.8, 0.8, 0.8};
     CGColorRef color = CGColorCreate(colorspace, components);
@@ -50,6 +50,7 @@
     
     CGPoint from;
     UIView *lastDot;
+
     for (UIView *dotView in _dotViews) {
         from = dotView.center;
         

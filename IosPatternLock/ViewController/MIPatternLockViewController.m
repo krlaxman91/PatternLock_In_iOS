@@ -88,13 +88,15 @@ static void (^completionBlock)();
     
     [self makeNavigationBar];
     
-    float x = 50;
+    float x ;
     float y;
     
     if([UIScreen mainScreen].bounds.size.height == 568) {
+        x = 50;
         y = 180;
     } else {
-        y = 120;
+        x = 80;
+        y = 200;
     }
     int line = MATRIX_SIZE;
     for (int i=0; i<MATRIX_SIZE * MATRIX_SIZE; i++) {
@@ -102,22 +104,25 @@ static void (^completionBlock)();
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:dotImage
                                                    highlightedImage:_activeImage];
-        
-        imageView.frame = CGRectMake(x, y, 20, 20);
+                imageView.frame = CGRectMake(x, y, 30, 30);
         imageView.userInteractionEnabled = YES;
         imageView.tag = (i+1);
         [self.view addSubview:imageView];
         x+= 100;
         if((i+1) % line == 0)
         {
-            x = 50;
-            y += 90;
+            y += 100;
+            if([UIScreen mainScreen].bounds.size.height == 568) {
+                x = 50;
+            } else {
+                x = 80;
+            }
         }
     }
     
     self.view.backgroundColor = [UIColor blackColor];
     
-    CGRect rect = CGRectMake(0, 80, 320, 40);
+    CGRect rect = CGRectMake(0, 40, 320, 40);
     self.titleLabel = [[UILabel alloc] initWithFrame:rect];
     rect.origin.y += 40;
     self.detailedLabel = [[UILabel alloc] initWithFrame:rect];
