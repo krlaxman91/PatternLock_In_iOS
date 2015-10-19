@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8D9E85D6F705C3549451729B344162C15B1E68F2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8D9E85D6F705C3549451729B344162C15B1E68F2" : 0,
+    "3C0CC662956A0E0171859D79B141AD31682B548D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E19817A9-A98B-4C0B-ABD9-DFA3F8E358B4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8D9E85D6F705C3549451729B344162C15B1E68F2" : "SamplePattern\/",
+    "3C0CC662956A0E0171859D79B141AD31682B548D" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SamplePattern",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SamplePattern.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/krlaxman91\/HorizontalScroll.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3C0CC662956A0E0171859D79B141AD31682B548D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/krlaxman91\/PatternLock_iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8D9E85D6F705C3549451729B344162C15B1E68F2"
+    }
+  ]
+}
