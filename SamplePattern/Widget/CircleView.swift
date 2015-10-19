@@ -50,7 +50,7 @@ class CircleView: UIView {
                 CGContextAddLineToPoint(context, (from?.x)!, (from?.y)!)
             }
             lastDot = dotView as? UIView
-            trackPointValue = nil
+           // trackPointValue = nil
         }
         let pt: CGPoint =  (trackPointValue!.CGPointValue())
         CGContextAddLineToPoint(context, pt.x, pt.y)
